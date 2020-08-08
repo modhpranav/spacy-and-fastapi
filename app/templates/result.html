@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="w3-container">
+{% if labels %}
+  <h2>Text with Labels:</h2>
+  <p>Hope you like it! &#128540;</p>
+
+  <table class="w3-table-all w3-card-4 w3-hoverable">
+    <tr class="w3-white">
+      <th>Article's Text</th>
+      <th>Label</th>
+    </tr>
+    {%for entries in labels %}
+    <tr>
+      <td>{{entries.text}}</td>
+      <td>{{entries.label}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% elif phrases %}
+<h2>Phrases from Article:</h2>
+  <p>Hope you like it! &#128540;</p>
+
+  <table class="w3-table-all w3-card-4 w3-hoverable">
+    <tr class="w3-white">
+      <th>Phrases</th>
+    </tr>
+    {%for phrase in phrases %}
+    <tr>
+      <td>{{phrase}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% elif error_message %}
+<h2>Uh-Oh!</h2>
+<p>{{ error_message }}&#128578;</p>
+{% else %}
+<h2>Uh-Oh!</h2>
+<p>Please try something else.&#128578;</p>
+{% endif %}
+</div>
+{% endblock %}
