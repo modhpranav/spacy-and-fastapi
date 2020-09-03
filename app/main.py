@@ -1,13 +1,13 @@
 from typing import List, Any
 from fastapi import FastAPI, Request, Form
 from pydantic import BaseModel
-import en_core_web_md, pytextrank
+import en_core_web_sm, pytextrank
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from string import punctuation
 
 
-nlp = en_core_web_md.load()
+nlp = en_core_web_sm.load()
 app = FastAPI()
 tr = pytextrank.TextRank()
 nlp.add_pipe(tr.PipelineComponent, name="textrank", last=True)
