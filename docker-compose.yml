@@ -1,0 +1,15 @@
+version: "3"
+
+services: 
+  fastapi:
+    container_name: "fastapi_spacy"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "uvicorn app.main:app --reload"
+    ports:
+      - "5000:5000"
+    environment: 
+      C_FORCE_ROOT: "true"
+    network_mode: "host"
+

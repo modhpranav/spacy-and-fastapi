@@ -1,2 +1,2 @@
 # spacy-and-fastapi
-My first interaction with fastapi
+Deploying fastapi with spacy model using heroku cli and heroku-docker.
